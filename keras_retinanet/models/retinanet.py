@@ -67,7 +67,9 @@ def default_classification_model(
         kernel_initializer=keras.initializers.normal(mean=0.0, stddev=0.01, seed=None),
         bias_initializer=initializers.PriorProbability(probability=prior_probability),
         name='pyramid_classification',
-        **options
+        kernel_size=1,
+        strides=1,
+        padding='same'
     )(outputs)
 
     # reshape output and apply sigmoid
